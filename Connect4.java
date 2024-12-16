@@ -24,7 +24,13 @@ public class Connect4 {
                     printBoard(board);
                     System.out.println("Player " + activePlayer + " wins!");
                 } else {
-                    activePlayer = (activePlayer == PLAYER1) ? PLAYER2 : PLAYER1;
+                    
+                    if (activePlayer == PLAYER1) {
+                        activePlayer = PLAYER2;
+                    } else {
+                        activePlayer = PLAYER1;
+                    }
+                       
                 }
             } else {
                 System.out.println("Column is full! Try again.");
@@ -69,7 +75,7 @@ public class Connect4 {
                     return column;
                 }
             } catch (Exception e) {
-                scanner.next(); // Clear invalid input
+                scanner.next(); // 
             }
             System.out.println("Invalid input. Please try again.");
         }
@@ -107,7 +113,7 @@ public class Connect4 {
             }
         }
 
-        // Check vertical
+       
         for (int row = 0; row <= ROWS - 4; row++) {
             for (int col = 0; col < COLS; col++) {
                 if (board[row][col] == player &&
@@ -119,7 +125,7 @@ public class Connect4 {
             }
         }
 
-        // Check diagonal (bottom-left to top-right)
+        
         for (int row = 3; row < ROWS; row++) {
             for (int col = 0; col <= COLS - 4; col++) {
                 if (board[row][col] == player &&
@@ -131,7 +137,7 @@ public class Connect4 {
             }
         }
 
-        // Check diagonal (top-left to bottom-right)
+        
         for (int row = 0; row <= ROWS - 4; row++) {
             for (int col = 0; col <= COLS - 4; col++) {
                 if (board[row][col] == player &&
