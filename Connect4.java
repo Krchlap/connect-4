@@ -12,19 +12,19 @@ public class Connect4 {
         initializeBoard(board);
         
         boolean gameWon = false;
-        char currentPlayer = PLAYER1;
+        char activePlayer = PLAYER1;
 
         while (!gameWon && !isBoardFull(board)) {
             printBoard(board);
-            int column = getPlayerMove(currentPlayer);
+            int column = getPlayerMove(activePlayer);
             
-            if (makeMove(board, column, currentPlayer)) {
-                if (isWinningMove(board, currentPlayer)) {
+            if (makeMove(board, column, activePlayer)) {
+                if (isWinningMove(board, activePlayer)) {
                     gameWon = true;
                     printBoard(board);
-                    System.out.println("Player " + currentPlayer + " wins!");
+                    System.out.println("Player " + activePlayer + " wins!");
                 } else {
-                    currentPlayer = (currentPlayer == PLAYER1) ? PLAYER2 : PLAYER1;
+                    activePlayer = (activePlayer == PLAYER1) ? PLAYER2 : PLAYER1;
                 }
             } else {
                 System.out.println("Column is full! Try again.");
